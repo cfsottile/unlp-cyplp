@@ -1,0 +1,3 @@
+[submodule "trabajo/gobstones/pygobstones"]
+	path = trabajo/gobstones/pygobstones
+	url = https://github.com/gobstones/pygobstones
