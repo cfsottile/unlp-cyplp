@@ -38,3 +38,22 @@ Su l-value se determina en ejecución mediante la acción explícita del program
 
 En ambos casos la variable `x` formaría parte del segmento de datos del programa y sería cargada antes de comenzar con la ejecución. El comportamiento sería el mismo.
 
+## Ejercicio 14
+
+|id|l-value|r-value|scope|extent|
+|---|---|---|---|---|
+|v1|estática|0|1-3,9-11,21-23|<1-28>|
+|a|estática|0?|1-16|<1-28>|
+|*a|dinámica|-|?|-???|
+|fun2|||3-16|3-8|
+|v1|automática|-|5-8|3-8|
+|y|automática|-|5-8|3-8|
+|var3|estática|0|10-16|<1-28>|
+|v1|automática|-|13-16|9-16|
+|y|automática|-|13-16|9-16|
+|var1|automática|'C'|15-16|14-16|
+|aux|estática|0|17-28|<1-28>|
+|v2|estática|0|7,12-28|<1-28>|
+|fun2|||19-28|19-23|
+|fun3|||24-28|24-28|
+|aux|automática|-|25-28|24-28|
