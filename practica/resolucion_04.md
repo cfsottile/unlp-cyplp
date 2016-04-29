@@ -43,8 +43,8 @@ En ambos casos la variable `x` formaría parte del segmento de datos del program
 |id|l-value|r-value|scope|extent|
 |---|---|---|---|---|
 |v1|estática|0|1-3,9-11,21-23|<1-28>|
-|a|estática|0?|1-16|<1-28>|
-|*a|dinámica|-|?|-???|
+|a|estática|0|1-16|<1-28>|
+|*a|dinámica|-|?|2-16|
 |fun2|||3-16|3-8|
 |v1|automática|-|5-8|3-8|
 |y|automática|-|5-8|3-8|
