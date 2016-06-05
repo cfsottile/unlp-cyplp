@@ -12,8 +12,6 @@ Resulta díficil (engorroso o tedioso) tener que verificar una variable despues 
 
 De ser asi, seria un manejo por **reasunción**. Ya que al ser una manejo por condición, sigue siendo procedural la ejecución del lenguaje.
 
-Como herramienta para introducirse al mundo de la programación, cumple con su función. Es un lenguaje es bantante cerrado y conciso. Tiene bien definida su gramática también.
-
 ## C
 
 En C, no se manejan las excepciones de forma nativa.
