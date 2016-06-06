@@ -1,0 +1,11 @@
+program
+{
+	if (hayBolitas(Rojo)) -- Verdadero si hay flor en la celda actual
+	{
+		Poner(Negro) -- Solo agrega fertilizante
+	}
+	else
+	{
+		Poner(Rojo) -- Pone una flor, pues no hay ninguna
+	}
+}

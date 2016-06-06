@@ -1,0 +1,8 @@
+program
+{
+	foreach i in [2,4..10]
+	{
+		Poner(Verde)
+		Mover(Este)
+	}
+}

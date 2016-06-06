@@ -1,0 +1,10 @@
+program
+{
+	{
+		switch (dir) to
+		Norte -> { PonerN(1, Verde) }
+		Sur -> { PonerN(2, Verde) }
+		Este -> { PonerN(3, Verde) }
+		_ -> { PonerN(4, Verde) }
+	}
+}

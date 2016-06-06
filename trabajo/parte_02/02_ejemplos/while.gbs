@@ -1,0 +1,8 @@
+program
+{
+	dir := Norte;
+	while(dir == Norte)
+	{
+		Poner(Verde)
+	}
+}
