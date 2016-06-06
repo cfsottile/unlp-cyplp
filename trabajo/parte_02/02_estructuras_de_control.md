@@ -69,7 +69,7 @@
 	* La expresión a evaluar puede ser tan compleja como se desee pero debe retornar un valor.
 	* Las etiquetas están nombradas por un literal del mismo tipo que el retornado por la expresión evaluada.
 	* La etiqueta `_` es obligatoria y debe colocarse al final del switch. No va acompañada de un literal y sólo es ejecutada si ninguna de las etiquetas evalúa a true. (Puede ir en cualquier lugar del case aunque se acostumbra ponerlo al final.)
-	* Las etiquetas son evaluadas _secuencialmente_ y en caso de que la comparación de sea `true`, se ejecuta el bloque especificado para esa etiqueta y luego salta al final del switch.
+	* Las etiquetas son evaluadas _secuencial mente_ y en caso de que la comparación de sea `true`, se ejecuta el bloque especificado para esa etiqueta y luego salta al final del switch.
 
 ### Iteración
 
