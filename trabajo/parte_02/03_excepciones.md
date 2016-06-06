@@ -21,100 +21,11 @@ A continuación, unos ejemplos de como simular un TRY CATCH en `C`.
 
 La forma en que procede luego de la interrupción es de **terminacion de bloque**, es decir, que cuando finaliza el manejo de la excepción, termina la ejecucion del bloque en que se lanzo la excepción.
 
->Try Catch con solo un tipo de error
+> [Try Catch con solo un tipo de error](03_ejemplos/try_catch_simple.c)
 
-```C
-#include <stdio.h>
-#include <setjmp.h>
+> [Try Catch con varios posibles valores](03_ejemplos/try_catch_varios.c)
 
-#define TRY do{ jmp_buf ex_buf__; if( !setjmp(ex_buf__) ){
-#define CATCH } else {
-#define ETRY } }while(0)
-#define THROW(err) longjmp(ex_buf__, err)
 
-int main(int argc, char** argv)
-{
-    typedef enum {
-        myEx
-    } ex;
-   TRY
-   {
-      printf("In Try Statement\n");
-      ex error = myEx;
-      THROW(error);
-      printf("I do not appear\n");
-   }
-   CATCH
-   {
-      printf("Got Exception!\n");
-   }
-   ETRY;
-   //Como se veria si se reemplazara los define
-   //Funciona igual
-   {
-    jmp_buf ex_buf__;
-    if( !setjmp(ex_buf__) )
-    {
-        {
-            printf("In Try Statement2\n");
-            ex error = myEx;
-            longjmp(ex_buf__, error);
-            printf("I do not appear\n");
-        }
-    }
-    else
-    {
-        {
-        printf("Got Exception2!\n");
-        }
-    }
-   }
-   return 0;
-}
-```
-
->Try Catch con varios posibles valores
-
-```C
-
-#include <stdio.h>
-#include <setjmp.h>
-
-#define TRY do{ jmp_buf ex_buf__; switch( setjmp(ex_buf__) ){ case 0:
-#define CATCH(x) break; case x:
-#define ETRY } }while(0)
-#define THROW(x) longjmp(ex_buf__, x)
-
-#define FOO_EXCEPTION (1)
-#define BAR_EXCEPTION (2)
-#define BAZ_EXCEPTION (3)
-
-int main(int argc, char** argv)
-{
-   TRY
-   {
-      printf("In Try Statement\n");
-      THROW( BAR_EXCEPTION );
-      printf("I do not appear\n");
-   }
-   CATCH( FOO_EXCEPTION )
-   {
-      printf("Got Foo!\n");
-   }
-   CATCH( BAR_EXCEPTION )
-   {
-      printf("Got Bar!\n");
-   }
-   CATCH( BAZ_EXCEPTION )
-   {
-      printf("Got Baz!\n");
-   }
-   ETRY;
-
-   return 0;
-}
-
-```
 
 ## Referencias
 
