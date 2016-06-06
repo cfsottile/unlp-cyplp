@@ -1,5 +1,7 @@
 mega
 recursos
-teoria
 .DS_Store
 2015
+
+teoria/*
+!teoria/notas/
