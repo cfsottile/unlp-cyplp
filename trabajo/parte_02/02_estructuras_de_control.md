@@ -1,11 +1,10 @@
-> Compare las sentencias de iteración y condicional para cada lenguaje mencionando las características y particularidades que considere más importantes.
-
 ## C
 
 ### Condicional
 
 * La expresiones condicionales en C estan dadas por las estructuras de control `if-else` y `?:`.
 	* _Ejemplo:_
+
 	```C
 	#include <stdio.h>
 	//Este programa evalúa si 2 números son mayores a 10
@@ -25,6 +24,7 @@
     return 0;
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee pero debe retornar un valor.
 	* La expresión es ejecutada y se compara el valor retornado con 0 (siendo éste equivalente a `false`).
 	* Si evalúa a `true`, el control se envía al bloque definido debajo del `if` el cual es obligatorio.
@@ -33,34 +33,10 @@
 	* Nuevamente la condición puede ser tan compleja como se desee, debe retornar un valor y es evaluado de la misma forma que el bloque `if-else`.
 	* Tanto los bloques <ifTrueStatements> e <ifFalseStatements> son obligatorios.
 	* Multiples operaciones pueden ser comprendidas dentro de <ifTrueStatements> e <ifFalseStatements> pero a travez del operador `,` ya que los bloques `{` `}` no estan permitidos.
-		Se debe tener cuidado cuando se hace esto ya que:
-		```C
-		#include <stdio.h>
-		int main()
-		{
-			int n = 3;
-			(n > 1)? (printf("true\n"), printf("true again\n")) : printf("false\n"), printf("false again\n");
-			return 0;
-		}
-		```
-		_Retorna `'true', 'true again', 'false again'`._
-
-		Pero:
-		```C
-		#include <stdio.h>
-		int main()
-		{
-			int n = 3;
-			(n > 1)? (printf("true\n"), printf("true again\n")) : (printf("false\n"), printf("false again\n"));
-			return 0;
-		}
-		```
-		_Retorna correctamente `'true', 'true again'`._
-
-	*
 
 * A su vez C proporciona una estructura de control condicional múltiple `switch-case`.
 	* _Ejemplo:_
+
 	```C
 	#include <stdio.h>
 	//Este programa responde qué letra corresponde en números romanos a un número
@@ -80,18 +56,6 @@
 			case 10:
 				c = 'X';
 				break;
-			case 50:
-				c = 'L';
-				break;
-			case 100:
-				c = 'C';
-				break;
-			case 500:
-				c = 'D';
-				break;
-			case 1000:
-				c = 'M';
-				break;
 			default:
 				c = '-';
 				break;
@@ -104,6 +68,7 @@
 		return 0;
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee pero debe retornar un valor.
 	* Las etiquetas `case` deben ir acompañadas de un literal(o una expresión literal) tipo entero que será el valor a comparar para esa etiqueta.
 	* La etiqueta `default` es ocpional y no va acompañada de un literal. Sólo es ejecutada si ninguna de las etiquetas evaúa a true. (Puede ir en cualquier lugar del case aunque se acostumbra ponerlo al final.)
@@ -115,6 +80,7 @@
 
 * Las expresiones iterativas-precondicionales estan implementadas bajo la estructura de control `while`
 	* _Ejemplo:_
+
 	```C
 	#include <stdio.h>
 	const int limit = 100;
@@ -130,6 +96,7 @@
 		}
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee.
 	* La expresión es ejecutada y se compara el valor retornado con 0 (siendo éste equivalente a `false`).
 	* Si la expresión evalúa `expr != 0` el bloque es ejecutado y la expresión se vuelve a evaluar.
@@ -137,6 +104,7 @@
 
 * C provee además, la expresión iterativa `for` que es(en este caso) una estructura iterativa-precondicional.
 	* _Ejemplo:_
+
 	```C
 	#include <stdio.h>
 	const int limit = 100;
@@ -146,6 +114,7 @@
 		}
 	}
 	```
+
 	* El `for` de C se define en 3 partes:
 		* La primer sentencia es ejecutada al ingresar al bloque del `for`.
 		* Luego se evalúa la segunda sentencia de forma tal que `expr != 0`.
@@ -160,6 +129,7 @@
 
 * A su vez, provee del bloque `do-while` para iteraciones postcondicionales.
 	* _Ejemplo:_
+
 	```C
 	#include <stdio.h>
 	const int limit = 100;
@@ -175,6 +145,7 @@
 		} while(!done(i));
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee.
 	* El bloque es ejecutado una primera vez.
 	* La expresión es evaluada y se compara el valor retornado con 0 (siendo éste equivalente a `false`).
@@ -188,6 +159,7 @@
 
 * La expresiones condicionales en Gobstones estan dadas por las estructuras de control `if-else`.
 	* _Ejemplo:_
+
 	```
 	program
 	{
@@ -201,6 +173,7 @@
 		}
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee pero debe retornar un valor booleano.
 	* La expresión es ejecutada y se compara el valor retornado con `true`.
 	* Si evalúa a `true`, el control se envía al bloque definido debajo del `if` el cual es obligatorio.
@@ -208,6 +181,7 @@
 
 * A su vez, Gobstones provee de una expresión _condicional indexada_ a travez de la estructura de control `switch->`
 	* _Ejemplo:_
+
 	```
 	program
 	{
@@ -220,6 +194,7 @@
 		}
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee pero debe retornar un valor.
 	* Las etiquetas estan nombradas por un literal del mismo tipo que el retornado por la expresión evaluada.
 	* La etiqueta `_` es obligatoria y debe colocarse al final del switch. No va acompañada de un literal y sólo es ejecutada si ninguna de las etiquetas evaúa a true. (Puede ir en cualquier lugar del case aunque se acostumbra ponerlo al final.)
@@ -229,6 +204,7 @@
 
 * Las expresiones iterativas-precondicionales estan implementadas bajo la estructura de control `while`
 	* _Ejemplo:_
+
 	```
 	program
 	{
@@ -239,6 +215,7 @@
 		}
 	}
 	```
+
 	* La expresión a evaluar puede ser tan compleja como se desee.
 	* La expresión es ejecutada y se compara el valor retornado con `True`.
 	* Si la expresión evalúa `True` el bloque es ejecutado y la expresión se vuelve a evaluar.
@@ -246,6 +223,7 @@
 
 * Gobstones provee de una función iterativa-indexada a travez de la estructura `foreach`.
 	* _Ejemplo:_
+
 	```
 	program
 	{
@@ -256,6 +234,7 @@
 		}
 	}
 	```
+
 	* Se define un identificador y un rango de valores.
 	* El identificador toma todos los valores del rango hasta finalizar la iteración.
 	* El bloque se ejecuta para cada valor del rango.
