@@ -6,7 +6,11 @@ Se declaran como variables `e: exception` y se levantan explícitamente mediante
 
 *DUDA1: si declaro una excepción en una unidad y no la manejo, cuando se propaga, ¿lo hace como anónima (por el asunto del alcance)?*
 
+Efectivamente; es como el alcance de una variable.
+
 *DUDA2: el alcance de las excepciones (así como de las variables), ¿es estático o dinámico? ¿A dónde voy a buscar la excepción `e` que no está existe localmente?*
+
+Por cadena estática.
 
 ### Manejo
 
@@ -19,6 +23,8 @@ La unidad en la que se produce la excepción corta su ejecución; se intenta man
 ### Criterio de continuación
 
 *DUDA: luego de encontrar un manejador y manejarla, ¿la ejecución continúa desde quien invocó a la unidad contenedora del manejador?*
+
+Así es.
 
 ### Built-in exceptions
 
@@ -33,7 +39,7 @@ La unidad en la que se produce la excepción corta su ejecución; se intenta man
 
 ### Definición y Lanzamiento
 
-Las excepciones sólo pueden lanzarse dentro de un procedimiento. Se definen junto al encabezado del método escribiendo `signals e1, e2`. Se lanzan mediante el comando `signal`.
+Las excepciones sólo pueden lanzarse dentro de un procedimiento. Se definen junto al encabezado del método escribiendo `signals e1, e2`. Se lanzan mediante el comando `signal`, que puede enviar parámetros a los manejadores (e.g. `signal(123)`).
 
 ### Manejo
 
@@ -43,9 +49,12 @@ Los manejadores se asocian a sentencias. Ejemplo:
 <sentencia>; except 
 	when e1: m1;
 	when e2: m2;
+	when e3(i: int): m3;
 	when others: mo;
 end;
 ```
+
+Se especifica, en los manejadores (como en el caso de `e3`), los parámetros formales.
 
 ### Propagación
 
@@ -53,7 +62,7 @@ El procedimiento en el que se produjo la excepción corta su ejecución. Se busc
 
 Sólo una vez, se puede *relanzar* una excepción mediante el comando `resignal`, lo que (*en duda*) genera un comportamiento similar a si el procedimiento contenedor del manejador fuera el que lanzó la excepción. 
 
-### Criterio de continuación - *En duda*
+### Criterio de continuación
 
 Se continúa la ejecución desde la sentencia siguiente a aquella que tenía asociado el manejador que se invocó.
 
@@ -65,7 +74,11 @@ Se continúa la ejecución desde la sentencia siguiente a aquella que tenía aso
 
 ### Definición, Lanzamiento y Manejo
 
-Se define una excepción junto con su manejador asociado. Esto se almacena en una pila de manejadores que es global a las unidades. Cuando se lanza una excepción (esto se hace mediante `signal condition <exception>`), se toma de la pila el último manejador asociado para la excepción y este es quien la maneja. *DUDA: una vez que se maneja la excepción, ¿el manejador se desapila?*
+Se define una excepción junto con su manejador asociado. Esto se almacena en una pila de manejadores que es global a las unidades. Cuando se lanza una excepción (esto se hace mediante `signal condition <exception>`), se toma de la pila el último manejador asociado para la excepción y este es quien la maneja.
+
+*DUDA: una vez que se maneja la excepción, ¿el manejador se desapila?*
+
+No. Los manejadores se desapilan cuando la rutina que los apiló termina.
 
 ### Propagación
 
@@ -127,5 +140,3 @@ Las excepciones son clases. Se definen como cualquier clase; heredan de alguna e
 ### Manejo
 
 Se declaran bloques de una forma similar a Python: en `begin` se ponen las sentencias que podrían generar excepciones, en `rescue <exception>` se escribe el código para manejarla, en `ensure` el código que se debe ejecutar **sí o sí**, y en `else` el código a ejecutar si no hubo excepciones.
-
-### Propagación
