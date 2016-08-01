@@ -1,27 +1,20 @@
->> Punto B - Citar características importantes diferentes entre el lenguaje seleccionado y el resto de los lenguajes que les haya tocado analizar.
-
+> Punto B - Citar características importantes diferentes entre el lenguaje seleccionado y el resto de los lenguajes que les haya tocado analizar.
 
 ### Soporte
 
-Consta de un soporte aceptable. Es accesible para cualquiera que desee utilizarlo.
+Gobstones consta de un soporte aceptable y es accesible para cualquiera que desee utilizarlo.
 
-##### Facilidad de acceso al compilador o intérprete
+**Facilidad de acceso al compilador o intérprete**
 
-Tanto en Gobtones como en C, el intérprete y compilador son accesibles.
+Tanto en Gobtones como en C, el intérprete/compilador es accesible.
 
 El intérprete de Gobstones está bajo la licencia GNU General Public License (GPL) en su página oficial.
-El lenguaje C tiene una amplia variedad de implementaciones de compiladores, la más conocida es GCC de dominio público y con licencia GPL.
 
-#### Multiplataforma
+El compilador de C tiene una amplia variedad de implementaciones. La más conocida es GCC, que es de dominio público y con licencia GPL.
 
-Ambos lenguajes tienen un soporte multiplataforma, es decir, corren en distintos tipos de sistemas operativos. Los más utilizados son Windows, OS X y Linux.
+**Multiplataforma**
 
-#### Recursos para el aprendizaje del lenguaje
-
-Gobstones posee una documentación que resulta suficiente para el uso y nivel que requiere aprender de el.
-
-C, en cambio, posee una variedad más amplia de libros y fuentes de dónde aprender y consultar su documentación. También se puede encontrar una tutoriales y cursos online, algunos de ellos publicados y/o impartidos por las prestigiosas universidades del mundo.
-
+Ambos lenguajes tienen un soporte multiplataforma, es decir, corren en distintos sistemas operativos. Los más utilizados son Windows, OS X y Linux.
 
 ### Ortogonalidad
 
@@ -33,20 +26,21 @@ Ninguno es completamente ortogonal. Nos encontramos con que algunas combinacione
 
 En este punto, quién saca ventaja es Gobstone. Al ser un lenguaje de programación ideado para enseñar a programar a personas que no tienen conocimientos previos, nos encontramos que tiene como fortaleza la simplicidad y legibilidad. Esta simplicidad está dada por distintas razones: la exclución de algunos conceptos, por ejemplo, los punteros y las excepciones. La sintaxis se ve facilitada a la hora del aprendizaje ya que no da espacio a cometer muchos errores.
 
-Ocurre que C es un lenguaje poco legible pero con una sintaxis muy completa que permite una escritura de código muy compacta. Un punto muy relevante es que se puede expresarel mismo concepto semántico pero con distintas sintaxis. También es debilmente tipado, es decir, que no están prohibidas las violaciones de los tipos de datos. También se ve afectada la complejidad de la curva de aprendizaje debido a que se trata de un lenguaje de medio nivel con muchas características que nos permiten trabajar a bajo nivel.
+Ocurre que C es un lenguaje poco legible pero con una sintaxis muy completa que permite una escritura de código muy compacta. Un punto muy relevante es que se puede expresar el mismo concepto semántico pero con distintas sintaxis. También es debilmente tipado, es decir, que no están prohibidas las violaciones de los tipos de datos. También se ve afectada la complejidad de la curva de aprendizaje debido a que se trata de un lenguaje de nivel medio con muchas características que nos permiten trabajar a bajo nivel.
 
 ### Confiabilidad
 
-* Chequeo de tipos
+**Chequeo de tipos**
 
 En C, el chequeo de tipos se hace en compilación y no tiene una conversión automática de tipos de datos incompatibles. Gobstone permite el chequeo de tipo pero es opcional y puede no estar disponible en todas las versiones de la herramienta. Cuando ocurre un error de tipo, falla el programa en ejecución.
 
-* Excepciones
+**Excepciones**
 
-Ninguno maneja excepciones de forma nativa. Al ser un lenguaje muy robusto C, se pueden importar librerías para manejar excepciones o el mismo programador podria implementarlas.
+Ninguno maneja excepciones de forma nativa. Pero C, al ser un lenguaje muy robusto, se pueden importar librerías para el manejo de excepciones o también el mismo programador podria implementarlas.
 
 
 ### Variables
+
 |Propiedad|Gobstones|C|
 |:---:|:---:|:---:|
 |Variables Tipadas|**Sí**|**Sí**|
@@ -60,8 +54,20 @@ Ninguno maneja excepciones de forma nativa. Al ser un lenguaje muy robusto C, se
 |Valores de inicialización|**-**|_static, extern_: 0, _auto_: _initializer_/indefinido, restantes:_const initializer_/0|
 
 
-
 * \* _Llamamos modificación de tipo a la posibilidad de modificar el atributo tipo de una variable luego de ser asignado por primera vez._
 * \** _Llamamos conversión de tipo a la posibilidad de modificar el atributo tipo al cual evalúa una variable o expresión._
 
 ### Parámetros
+
+El pasaje de parametros en Gobstones es de **ligadura posicional**. En el caso de este lenguaje sucede lo mismo que en C. La ligadura de los parametros es posicional.
+
+Modo IN:
+* C: Pasajes por valor y por valor constante
+* Gobstones: Pasaje por valor. También se pueden pasar funciones como parámetros.
+
+Modo OUT:
+* C y Gobstones: Por resultado de funciones -> El resultado de una función puede devolverse con el uso del **return**
+
+Modo I/O:
+* C: No tiene pasaje de parametros por referencia pero en C se simula a través del *uso de punteros*.
+* Gobstones: No cuenta con la posibilidad de pasar parametros por referencia, por valor/resultado o por nombre
