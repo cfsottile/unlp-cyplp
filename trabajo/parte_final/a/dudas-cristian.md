@@ -1,4 +1,8 @@
-> Determine los tipos de variable de acuerdo al momento de ligadura con el lvalor.
+> Características principales de la sintáxis
+
+¿Por qué se elige una sintáxis C-like?
+
+> Determine los tipos de variable de acuerdo al momento de ligadura con el l-valor.
 
 Considerando que **1)** las variables no se definen, directamente se inicializan, **2)** el tipo se liga en la inicialización, y **3)** para asignar espacio de memoria debemos conocer el tamaño requerido, el cual está dado por el tipo; podemos deducir que el *l-valor* se liga en la sentencia de inicialización, lo que hace a las variables **dinámicas** según el *binding time* del *l-valor*. Por otro lado, dado que Python presenta el mismo tipo de variables [1], y que Gobstones está implementado sobre dicho lenguaje, podemos suponer que estábamos en lo cierto. ¿Nuestra deducción es correcta?
 
